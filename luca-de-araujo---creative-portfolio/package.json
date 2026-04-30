@@ -1,11 +1,14 @@
 {
   "name": "luca-mazala-portfolio",
+  "homepage": "https://luca-de-araujo.github.io/luca-de-araujo---creative-portfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
     "build": "vite build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit"
@@ -27,6 +30,7 @@
     "vite": "^6.2.3"
   },
   "devDependencies": {
+    "gh-pages": "^6.1.1",
     "@types/express": "^4.17.21",
     "@types/node": "^22.14.0",
     "autoprefixer": "^10.4.21",
