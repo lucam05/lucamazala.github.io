@@ -2,7 +2,7 @@
   "devDependencies": {
     "gh-pages": "^6.3.0"
   },
-  "homepage": "https://luca-de-araujo.github.io/luca-mazala-portfolio",
+  "homepage": "https://luca-de-araujo.github.io/luca-de-araujo---creative-portfolio",
   "version": "0.0.0",
   "scripts": {
   "predeploy": "npm run build",
