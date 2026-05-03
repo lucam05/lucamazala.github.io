@@ -36,23 +36,33 @@ export default function Contact() {
             : 'Currently open to new opportunities, connections, and discussions about technology, data analysis, and innovation.'}
         </p>
         
-        <div className="flex flex-col md:flex-row gap-6 mt-10">
+        <div className="flex flex-col md:flex-row flex-wrap justify-center gap-6 mt-10">
           <motion.a
             href="mailto:lucamazala10@gmail.com"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-12 py-5 bg-[#00FF00] text-black font-bold uppercase tracking-widest text-sm rounded-full hover:shadow-[0_0_30px_rgba(0,255,0,0.4)] transition-all"
+            className="px-12 py-5 bg-[#00FF00] text-black font-bold uppercase tracking-widest text-sm rounded-full hover:shadow-[0_0_30px_rgba(0,255,0,0.4)] transition-all flex items-center justify-center"
           >
             {language === 'pt' ? 'Enviar Email' : 'Send Email'}
           </motion.a>
           
+          <motion.a
+             href="curiculo/Curriculo_Luca_PTBR.pdf"
+             download="Luca_Mazala_CV.pdf"
+             whileHover={{ scale: 1.05 }}
+             whileTap={{ scale: 0.95 }}
+             className="px-12 py-5 border border-[#00FF00] text-[#00FF00] font-bold uppercase tracking-widest text-sm rounded-full hover:bg-[#00FF00] hover:text-black transition-all flex items-center justify-center gap-3"
+          >
+            <i className="fas fa-download text-lg"></i> {language === 'pt' ? 'Currículo' : 'Resume'}
+          </motion.a>
+
           <motion.a
              href="https://linkedin.com/in/luca-de-araujo"
              target="_blank"
              rel="noreferrer"
              whileHover={{ scale: 1.05 }}
              whileTap={{ scale: 0.95 }}
-             className="px-12 py-5 border border-white/10 text-white font-bold uppercase tracking-widest text-sm rounded-full hover:border-[#00FF00] transition-all"
+             className="px-12 py-5 border border-white/10 text-white font-bold uppercase tracking-widest text-sm rounded-full hover:border-[#00FF00] transition-all flex items-center justify-center"
           >
             LinkedIn
           </motion.a>
@@ -61,7 +71,7 @@ export default function Contact() {
              href="tel:+5531992927990"
              whileHover={{ scale: 1.05 }}
              whileTap={{ scale: 0.95 }}
-             className="px-12 py-5 border border-white/10 text-white font-bold uppercase tracking-widest text-sm rounded-full hover:border-[#00FF00] transition-all"
+             className="px-12 py-5 border border-white/10 text-white font-bold uppercase tracking-widest text-sm rounded-full hover:border-[#00FF00] transition-all flex items-center justify-center"
           >
             WhatsApp
           </motion.a>
