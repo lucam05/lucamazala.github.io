@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 
 const education = [
   {
-    title: 'Licenciatura em Engenharia de Software',
+    title: 'Bacharelado em Engenharia de Software',
     institution: 'PUC Minas',
     period: '2023 - 2028',
     description: 'Desenvolvimento de bases sólidas em programação, arquitetura de sistemas, metodologias de desenvolvimento e engenharia de requisitos.'
