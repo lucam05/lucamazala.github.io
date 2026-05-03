@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { useLanguage } from './LanguageContext';
+import curriculoPDF from '../curiculo/Curriculo_Luca_PTBR.pdf';
 
 export default function Contact() {
   const { language } = useLanguage();
@@ -47,7 +48,7 @@ export default function Contact() {
           </motion.a>
           
           <motion.a
-             href="curiculo/Curriculo_Luca_PTBR.pdf"
+             href={curriculoPDF}
              download="Luca_Mazala_CV.pdf"
              whileHover={{ scale: 1.05 }}
              whileTap={{ scale: 0.95 }}
