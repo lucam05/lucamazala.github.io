@@ -1,43 +1,46 @@
 import React from 'react';
 import { motion } from 'motion/react';
-
-const categories = [
-  {
-    title: 'Gestão & Metodologias',
-    skills: [
-      { label: 'Gestão de Projetos', value: 85 },
-      { label: 'Metodologias Ágeis (Scrum/Kanban)', value: 90 },
-      { label: 'Jira Software', value: 80 }
-    ]
-  },
-  {
-    title: 'Dados & Ferramentas',
-    skills: [
-      { label: 'Power BI', value: 90 },
-      { label: 'Excel Avançado', value: 85 },
-      { label: 'SAP ERP', value: 75 }
-    ]
-  },
-  {
-    title: 'Soft Skills & Outros',
-    skills: [
-      { label: 'Resolução de Problemas', value: 100 },
-      { label: 'Pensamento Analítico', value: 95 },
-      { label: 'Inglês Fluente', value: 90 }
-    ],
-    tags: ['Engenharia de Software', 'IA (Iniciante)', 'Comunicação', 'Colaboração']
-  }
-];
+import { useLanguage } from './LanguageContext';
 
 export default function Skills() {
+  const { language } = useLanguage();
+
+  const categories = [
+    {
+      title: language === 'pt' ? 'Gestão & Metodologias' : 'Management & Methodologies',
+      skills: [
+        { label: language === 'pt' ? 'Gestão de Projetos' : 'Project Management', value: 85 },
+        { label: language === 'pt' ? 'Metodologias Ágeis (Scrum/Kanban)' : 'Agile Methodologies (Scrum/Kanban)', value: 90 },
+        { label: 'Jira Software', value: 80 }
+      ]
+    },
+    {
+      title: language === 'pt' ? 'Dados & Ferramentas' : 'Data & Tools',
+      skills: [
+        { label: 'Power BI', value: 90 },
+        { label: language === 'pt' ? 'Excel Avançado' : 'Advanced Excel', value: 85 },
+        { label: 'SAP ERP', value: 75 }
+      ]
+    },
+    {
+      title: language === 'pt' ? 'Soft Skills & Outros' : 'Soft Skills & Others',
+      skills: [
+        { label: language === 'pt' ? 'Resolução de Problemas' : 'Problem Solving', value: 100 },
+        { label: language === 'pt' ? 'Pensamento Analítico' : 'Analytical Thinking', value: 95 },
+        { label: language === 'pt' ? 'Inglês Fluente' : 'Fluent English', value: 90 }
+      ],
+      tags: language === 'pt' ? ['Engenharia de Software', 'IA (Iniciante)', 'Comunicação', 'Colaboração'] : ['Software Engineering', 'AI (Beginner)', 'Communication', 'Collaboration']
+    }
+  ];
+
   return (
     <section id="competencias" className="py-32 px-6 bg-[#0c0c0c]">
       <div className="container mx-auto">
         <div className="flex flex-col gap-6 mb-16 text-center">
-          <span className="text-[#00FF00] font-mono text-xs uppercase tracking-[0.3em]">02 / Competências</span>
-          <h2 className="text-5xl lg:text-7xl font-black uppercase tracking-tighter">Minhas Competências</h2>
+          <span className="text-[#00FF00] font-mono text-xs uppercase tracking-[0.3em]">02 / {language === 'pt' ? 'Competências' : 'Skills'}</span>
+          <h2 className="text-5xl lg:text-7xl font-black uppercase tracking-tighter">{language === 'pt' ? 'Minhas Competências' : 'My Skills'}</h2>
           <p className="max-w-2xl mx-auto text-white/50 text-base lg:text-lg">
-            Um conjunto de ferramentas que combina conhecimentos de engenharia técnica com uma forte veia analítica e de gestão.
+            {language === 'pt' ? 'Um conjunto de ferramentas que combina conhecimentos de engenharia técnica com uma forte veia analítica e de gestão.' : 'A set of tools combining technical engineering knowledge with a strong analytical and management core.'}
           </p>
         </div>
 

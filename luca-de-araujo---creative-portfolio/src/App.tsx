@@ -7,9 +7,11 @@ import Skills from './components/Skills';
 import Education from './components/Projects';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
+import { LanguageProvider, useLanguage } from './components/LanguageContext';
 
-export default function App() {
+function AppContent() {
   const { scrollYProgress } = useScroll();
+  const { language } = useLanguage();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
@@ -27,7 +29,7 @@ export default function App() {
       <Navbar />
       
       <main>
-        <Suspense fallback={<div className="h-screen w-full flex items-center justify-center text-[#00FF00] font-mono">LOADING SCENE...</div>}>
+        <Suspense fallback={<div className="h-screen w-full flex items-center justify-center text-[#00FF00] font-mono">{language === 'pt' ? 'A CARREGAR CENA...' : 'LOADING SCENE...'}</div>}>
           <Hero />
         </Suspense>
         
@@ -39,8 +41,16 @@ export default function App() {
       </main>
       
       <footer className="py-10 px-6 border-t border-white/10 text-center text-white/40 text-xs uppercase tracking-widest font-mono">
-        © {new Date().getFullYear()} Luca Mazala. Todos os direitos reservados.
+        © {new Date().getFullYear()} Luca Mazala. {language === 'pt' ? 'Todos os direitos reservados.' : 'All rights reserved.'}
       </footer>
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <LanguageProvider>
+      <AppContent />
+    </LanguageProvider>
   );
 }

@@ -1,12 +1,15 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import profilePhoto from '../Imagens/luca_portifolio.png';
+import { useLanguage } from './LanguageContext';
 
 export default function About() {
+  const { language } = useLanguage();
+
   return (
     <section id="sobre" className="py-32 px-6 bg-[#0c0c0c] relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none select-none">
-        <span className="text-[40vw] font-black absolute -top-[10vw] -left-[5vw] leading-none">SOBRE</span>
+        <span className="text-[40vw] font-black absolute -top-[10vw] -left-[5vw] leading-none">{language === 'pt' ? 'SOBRE' : 'ABOUT'}</span>
       </div>
       
       <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center relative z-10">
@@ -36,20 +39,26 @@ export default function About() {
             viewport={{ once: true }}
             className="flex items-center gap-4"
           >
-            <span className="text-[#00FF00] font-mono text-xs uppercase tracking-[0.3em]">Perfil Profissional</span>
+            <span className="text-[#00FF00] font-mono text-xs uppercase tracking-[0.3em]">{language === 'pt' ? 'Perfil Profissional' : 'Professional Profile'}</span>
             <div className="h-[1px] flex-1 bg-white/10"></div>
           </motion.div>
           
           <h2 className="text-4xl lg:text-6xl font-bold tracking-tight">
-            Gestão de projetos e análise de dados com foco em resultado.
+            {language === 'pt' ? 'Gestão de projetos e análise de dados com foco em resultado.' : 'Project management and data analysis focused on results.'}
           </h2>
           
           <div className="space-y-6 text-white/60 leading-relaxed max-w-lg text-lg">
             <p>
-              Sou um estudante de <strong className="text-white">Engenharia de Software</strong> na PUC Minas, apaixonado por resolver problemas complexos através da tecnologia e da análise de dados. Minha trajetória está na interseção entre a área técnica e a gestão de negócios.
+              {language === 'pt' ? (
+                <>Sou um estudante de <strong className="text-white">Engenharia de Software</strong> na PUC Minas, apaixonado por resolver problemas complexos através da tecnologia e da análise de dados. Minha trajetória está na interseção entre a área técnica e a gestão de negócios.</>
+              ) : (
+                <>I am a <strong className="text-white">Software Engineering</strong> student at PUC Minas, passionate about solving complex problems through technology and data analysis. My trajectory lies at the intersection of technical areas and business management.</>
+              )}
             </p>
             <p>
-              Tenho experiência em tecnologia, consultoria e mineração, com foco em metodologias ágeis, Business Intelligence e gestão de projetos. Procuro sempre impulsionar a inovação e otimizar processos operacionais.
+              {language === 'pt' 
+                ? 'Tenho experiência em tecnologia, consultoria e mineração, com foco em metodologias ágeis, Business Intelligence e gestão de projetos. Procuro sempre impulsionar a inovação e otimizar processos operacionais.' 
+                : 'I have experience in technology, consulting, and mining, focusing on agile methodologies, Business Intelligence, and project management. I always seek to drive innovation and optimize operational processes.'}
             </p>
           </div>
         </div>

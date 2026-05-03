@@ -1,30 +1,33 @@
 import React from 'react';
 import { motion } from 'motion/react';
-
-const education = [
-  {
-    title: 'Bacharelado em Engenharia de Software',
-    institution: 'PUC Minas',
-    period: '2023 - 2028',
-    description: 'Desenvolvimento de bases sólidas em programação, arquitetura de sistemas, metodologias de desenvolvimento e engenharia de requisitos.'
-  },
-  {
-    title: 'Programa de Inglês Avançado',
-    institution: 'Langports English Language College, Austrália',
-    period: 'Fev 2024 - Jul 2024',
-    description: 'Imersão cultural e desenvolvimento de fluência em inglês em ambiente global, com foco em comunicação e colaboração internacional.'
-  }
-];
+import { useLanguage } from './LanguageContext';
 
 export default function Education() {
+  const { language } = useLanguage();
+
+  const education = [
+    {
+      title: language === 'pt' ? 'Bacharelado em Engenharia de Software' : 'Bachelor of Software Engineering',
+      institution: 'PUC Minas',
+      period: '2023 - 2028',
+      description: language === 'pt' ? 'Desenvolvimento de bases sólidas em programação, arquitetura de sistemas, metodologias de desenvolvimento e engenharia de requisitos.' : 'Development of solid foundations in programming, system architecture, development methodologies, and requirements engineering.'
+    },
+    {
+      title: language === 'pt' ? 'Programa de Inglês Avançado' : 'Advanced English Program',
+      institution: 'Langports English Language College, Austrália',
+      period: language === 'pt' ? 'Fev 2024 - Jul 2024' : 'Feb 2024 - Jul 2024',
+      description: language === 'pt' ? 'Imersão cultural e desenvolvimento de fluência em inglês em ambiente global, com foco em comunicação e colaboração internacional.' : 'Cultural immersion and development of English fluency in a global environment, focusing on international communication and collaboration.'
+    }
+  ];
+
   return (
     <section id="educacao" className="py-32 px-6 bg-[#0a0a0a]">
       <div className="container mx-auto">
         <div className="flex flex-col gap-6 mb-16 text-center">
-          <span className="text-[#00FF00] font-mono text-xs uppercase tracking-[0.3em]">04 / Educação</span>
-          <h2 className="text-5xl lg:text-7xl font-black uppercase tracking-tighter">Trajetória Académica</h2>
+          <span className="text-[#00FF00] font-mono text-xs uppercase tracking-[0.3em]">04 / {language === 'pt' ? 'Educação' : 'Education'}</span>
+          <h2 className="text-5xl lg:text-7xl font-black uppercase tracking-tighter">{language === 'pt' ? 'Trajetória Académica' : 'Academic Path'}</h2>
           <p className="max-w-2xl mx-auto text-white/50 text-base lg:text-lg">
-            Formação técnica e experiência internacional que complementam a minha abordagem analítica e orientada a resultados.
+            {language === 'pt' ? 'Formação técnica e experiência internacional que complementam a minha abordagem analítica e orientada a resultados.' : 'Technical background and international experience that complement my analytical and results-oriented approach.'}
           </p>
         </div>
 
