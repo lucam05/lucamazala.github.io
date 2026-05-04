@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import profilePhoto from '../Imagens/luca_portifolio.png';
+import profilePhoto from '../imagens/luca_portifolio.png';
 import { useLanguage } from './LanguageContext';
 
 export default function About() {
