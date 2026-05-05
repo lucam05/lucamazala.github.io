@@ -67,9 +67,12 @@ function AppContent() {
         whileTap={{ scale: 0.9 }}
         onClick={scrollToTop}
         title={language === 'pt' ? 'Voltar ao topo' : 'Back to top'}
-        className="fixed bottom-10 right-10 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-[#00FF00] text-black shadow-[0_0_20px_rgba(0,255,0,0.3)] transition-shadow hover:shadow-[0_0_30px_rgba(0,255,0,0.6)] cursor-pointer"
+        className="fixed bottom-10 right-10 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-[#00FF00] text-white shadow-[0_0_20px_rgba(0,255,0,0.3)] transition-shadow hover:shadow-[0_0_30px_rgba(0,255,0,0.6)] cursor-pointer"
       >
-        <i className="fas fa-arrow-up text-lg"></i>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 4L12 20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          <path d="M6 10L12 4L18 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
       </motion.button>
     </div>
   );

@@ -25,7 +25,7 @@ export default function Education() {
       <div className="container mx-auto">
         <div className="flex flex-col gap-6 mb-16 text-center">
           <span className="text-[#00FF00] font-mono text-xs uppercase tracking-[0.3em]">04 / {language === 'pt' ? 'Educação' : 'Education'}</span>
-          <h2 className="text-5xl lg:text-7xl font-black uppercase tracking-tighter">{language === 'pt' ? 'Trajetória Académica' : 'Academic Path'}</h2>
+          <h2 className="text-5xl lg:text-7xl font-black uppercase tracking-tighter">{language === 'pt' ? 'Trajetória Acadêmica' : 'Academic Path'}</h2>
           <p className="max-w-2xl mx-auto text-white/50 text-base lg:text-lg">
             {language === 'pt' ? 'Formação técnica e experiência internacional que complementam a minha abordagem analítica e orientada a resultados.' : 'Technical background and international experience that complement my analytical and results-oriented approach.'}
           </p>

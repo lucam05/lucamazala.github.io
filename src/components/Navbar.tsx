@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { useLanguage } from './LanguageContext';
 
@@ -12,6 +12,13 @@ const navLinks = [
 
 export default function Navbar() {
   const { language, toggleLanguage, t } = useLanguage();
+  const [isSwitchingLanguage, setIsSwitchingLanguage] = useState(false);
+
+  const handleLanguageToggle = () => {
+    setIsSwitchingLanguage(true);
+    toggleLanguage();
+    window.setTimeout(() => setIsSwitchingLanguage(false), 800);
+  };
 
   return (
     <nav className="fixed top-0 left-0 w-full z-40 px-6 py-8 flex justify-between items-center pointer-events-none">
@@ -39,13 +46,42 @@ export default function Navbar() {
         ))}
       </div>
 
-      <div className="flex items-center gap-4 pointer-events-auto">
+      <div className="flex items-center gap-4 pointer-events-auto relative">
         <button
-          onClick={toggleLanguage}
-          className="px-3 py-1 text-[10px] font-mono font-bold uppercase border border-white/10 rounded-full hover:border-[#00FF00] hover:text-[#00FF00] transition-all cursor-pointer"
+          onClick={handleLanguageToggle}
+          className="relative overflow-hidden px-3 py-1 text-[10px] font-mono font-bold uppercase border border-white/10 rounded-full hover:border-[#00FF00] hover:text-[#00FF00] transition-all cursor-pointer"
         >
-          {language === 'pt' ? 'EN' : 'PT'}
+          <motion.span
+            initial={false}
+            animate={isSwitchingLanguage ? { scale: [1, 1.05, 1], opacity: [1, 0.6, 1] } : { scale: 1, opacity: 1 }}
+            transition={{ duration: 0.4 }}
+            className="absolute inset-0 rounded-full border border-[#00FF00]/30 pointer-events-none"
+          />
+          <span className="relative z-10">{language === 'pt' ? 'EN' : 'PT'}</span>
         </button>
+
+        {isSwitchingLanguage && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.4 }}
+            animate={{ opacity: [0, 1, 1, 0], scale: [0.4, 1, 1, 0.4] }}
+            transition={{ duration: 0.9, ease: 'easeOut' }}
+            className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none"
+          >
+            <div className="w-[85vw] max-w-md rounded-[2.5rem] border border-[#00FF00]/20 bg-[#080808]/90 p-6 shadow-[0_0_60px_rgba(0,255,0,0.18)] backdrop-blur-sm">
+              <div className="flex items-center justify-between mb-4 text-white/70 font-mono text-xs uppercase tracking-[0.3em]">
+                <span>LANGUAGE MODE</span>
+                <span className="text-[#00FF00]">{language.toUpperCase()}</span>
+              </div>
+              <div className="rounded-3xl border border-white/10 bg-[#111111] p-5 text-[#00FF00] font-mono text-[12px] leading-6 shadow-[inset_0_0_30px_rgba(0,255,0,0.12)]">
+                <div className="opacity-80">// Switching content...</div>
+                <div className="mt-3">const locale = language === 'pt' ? 'pt-BR' : 'en-US';</div>
+                <div>const message = locale === 'pt-BR' ? 'Olá' : 'Hi';</div>
+                <div className="mt-4 text-white/80">return message;</div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+
         <motion.a
           href="#contacto"
           initial={{ opacity: 0, x: 20 }}
